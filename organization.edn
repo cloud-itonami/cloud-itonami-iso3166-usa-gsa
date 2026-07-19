@@ -6,5 +6,5 @@
   :head-role-note "institutional office title only; personal names of current office-holders are intentionally NOT stored"
   :contact-page "https://www.gsa.gov/about-us/contact-us"
   :sourced-from "official public contact page"
-  :hq {:line-en "1800 F Street NW, Washington, DC 20405" :line-local "1800 F Street NW, Washington, DC 20405" :postal-code "20405" :country "usa" :kind "headquarters" :provenance "https://www.gsa.gov/about-us/contact-us" :last-verified "2026-07-10" :sourcing "official-site-public" :phone "1-844-472-4111"}
+  :hq {:line-en "1800 F Street NW, Washington, DC 20405" :line-local "1800 F Street NW, Washington, DC 20405" :postal-code "20405" :phone "1-844-472-4111" :kind "headquarters" :provenance "https://www.gsa.gov/about-us/contact-us" :last-verified "2026-07-10" :sourcing "official-site-public" :country "usa"}
 }
