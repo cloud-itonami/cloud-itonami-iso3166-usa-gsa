@@ -7,13 +7,15 @@ the operator model.
 
 Maintainers may merge changes that preserve these invariants:
 
-- the advisor cannot directly submit a portal registration/filing or
-  commit a public record.
-- the Market-Entry Compliance Governor remains independent of the advisor.
+- the advisor cannot directly submit a SAM.gov registration, MAS
+  Schedule offer, or commit a public record.
+- the GSA Federal-Procurement Compliance Governor remains independent of
+  the advisor.
 - a fabricated or stale regulatory-requirement claim cannot be overridden
-  by human approval alone.
+  by human approval alone — this includes citing the retired DUNS
+  identifier as current, or misattributing sole FAR ownership to GSA.
 - every commit, hold and approval path is auditable.
-- real client/bid data stays outside Git.
+- real client/registration data stays outside Git.
 
 ## Decision Records
 
@@ -32,7 +34,7 @@ representation the law of the United States requires for GSA filings.
 Certified operators can lose certification for:
 
 - bypassing governor checks
-- mishandling client or bid data
+- mishandling client or registration data
 - misrepresenting certification status
 - failing to respond to security incidents
 - hiding material changes to customer-facing operation

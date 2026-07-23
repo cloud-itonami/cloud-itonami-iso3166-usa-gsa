@@ -5,9 +5,42 @@
  :itonami.blueprint/ooyake-id "gov.usa.gsa"
  :itonami.blueprint/domain :public-sector/agency-compliance
  :itonami.blueprint/license "AGPL-3.0-or-later"
- :itonami.blueprint/social-impact [:public-spend-transparency :sme-market-access :cross-border-friction-reduction]
- :itonami.blueprint/governor :market-entry-compliance-governor
+ :itonami.blueprint/social-impact [:federal-procurement-access-clarity :public-spend-transparency :sme-market-access]
+ :itonami.blueprint/governor :gsa-federal-procurement-compliance-governor
  :itonami.blueprint/robotics false
  :itonami.blueprint/required-technologies [:identity :forms :dmn :bpmn :audit-ledger]
  :itonami.blueprint/status :public-oss
- :itonami.blueprint/organization {:ooyake-id "gov.usa.gsa" :head-role "Administrator of General Services"}}
+ :itonami.blueprint/organization {:ooyake-id "gov.usa.gsa" :official-url "https://www.gsa.gov/" :head-role "Administrator of General Services" :hq-line-local "1800 F Street NW, Washington, DC 20405" :hq-phone "1-844-472-4111" :contact-page "https://www.gsa.gov/about-us/contact-us"}
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "src/gsacompliance/* (langgraph-clj StateGraph actor): facts.cljc
+ (SAM.gov entity registration + Unique Entity Identifier (UEI) --
+ DUNS fully retired 2022-04-04, never a current identifier -- + GSA
+ Multiple Award Schedule (MAS/'GSA Schedule') with the VA-delegated-
+ medical-schedule disambiguation + GSAM-as-FAR-supplement + FAR
+ Council joint-ownership (DoD/GSA/NASA) disambiguation catalog,
+ grounded in sam.gov/gsa.gov/acquisition.gov/en.wikipedia.org sources
+ only), governor.cljc (GSA Federal-Procurement Compliance Governor --
+ spec-basis/no-fabrication HARD check, legacy-DUNS-citation HARD check
+ (retired 2022-04-04, unconditional), FAR-owner-misattribution HARD
+ check (GSA is one of three FAR Council co-owners, not sole owner),
+ evidence-incomplete check, SAM-registration-missing HARD check
+ (:mas-schedule filing/submit prerequisite), medical-schedule-
+ misattribution HARD check (VA-delegated-schedule conflation guard),
+ engagement-fee-mismatch check (three revenue lines),
+ confidence-floor/actuation gate, double-draft/double-submit guards
+ per track), store.cljc (MemStore + DatomicStore via
+ kotoba-lang/langchain-store, engagement entity tracking
+ :sam-registration and :mas-schedule tracks independently plus
+ engagement-level :sam-registration-verified?/:medical-schedule-
+ offering?/:va-delegation-acknowledged? gates), registry.cljc
+ (pure-function filing-draft/filing-submit record construction),
+ gsacompliancellm.cljc (mock GSA Compliance Advisor), operation.cljc
+ (intake -> advise -> govern -> decide -> [request-approval ->]
+ commit/hold StateGraph), phase.cljc (0->3 rollout, :filing/draft and
+ :filing/submit permanently excluded from every phase's :auto set).
+ 35 tests / 126 assertions passing (governor contract + store parity +
+ facts + phase + registry), clj-kondo clean (0 errors, 5 non-fatal
+ unused-binding/unused-require warnings in test files). Does NOT cite
+ DFARS/CMMC (DoD-specific, sibling usa-dod actor's scope) or SCA/DBRA/
+ OFCCP (DOL-specific, sibling usa-dol actor's scope)."}

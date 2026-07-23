@@ -15,10 +15,13 @@ behavior.
 
 ## Rules
 
-- Do not commit real client, business-registration or bid data.
-- Keep production actions behind the Market-Entry Compliance Governor.
+- Do not commit real client or business-registration data.
+- Keep production actions behind the GSA Federal-Procurement Compliance
+  Governor.
 - Never let the advisor state a legal/tax conclusion as fact — every
-  regulatory requirement must cite the official GSA source.
+  regulatory requirement must cite the official SAM.gov/GSA/
+  acquisition.gov source, and never cite the retired DUNS identifier as
+  current.
 - Document any new business-model or operator assumption in `docs/`.
 
 ## Pull Requests
