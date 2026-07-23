@@ -10,7 +10,7 @@ public impact.
 
 Unacceptable behavior includes harassment, threats, discrimination,
 publishing private information, or using the project to expose real
-client business, government-relations or bid data.
+client business or registration data.
 
 ## Enforcement
 

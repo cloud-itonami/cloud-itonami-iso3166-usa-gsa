@@ -1,6 +1,6 @@
 # Security Policy
 
-This project handles public-sector market-entry and procurement-
+This project handles GSA/SAM.gov federal-procurement registration
 compliance workflows. Treat vulnerabilities as potentially high impact
 even when the demo data is synthetic.
 
@@ -9,9 +9,9 @@ even when the demo data is synthetic.
 Report privately before opening public issues for:
 
 - credential exposure
-- real client, business-registration or bid data exposure
+- real client or business-registration data exposure
 - authorization bypass
-- Market-Entry Compliance Governor bypass
+- GSA Federal-Procurement Compliance Governor bypass
 - audit-ledger tampering
 - a path that lets a filing/registration submit without human sign-off
 
@@ -32,7 +32,7 @@ Include:
 ## Production Guidance
 
 - Store secrets outside Git.
-- Keep real client/bid data outside this repository.
+- Keep real client/registration data outside this repository.
 - Run governor tests before deployment.
 - Export and review audit logs regularly.
 - Use least privilege for operators and service accounts.
